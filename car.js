@@ -18,6 +18,8 @@ class Car {
         this.alive = true;
         this.fitness = 0;
         this.distance = 0;
+        this.steps = 0;
+        this.steps = 0;
 
         this.brain = brain ? brain.copy() : new NeuralNetwork(5, 6, 2);
         this.sensor = new Sensor(this, track);
@@ -52,6 +54,8 @@ class Car {
         this.y += Math.cos(this.angle) * this.speed;
 
         this.distance += Math.abs(this.speed);
+        this.steps++;
+        if (this.steps > 1000) this.alive = false;
 
         // Check collision
         if (this.checkCollision()) {

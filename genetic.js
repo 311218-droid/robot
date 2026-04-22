@@ -9,7 +9,7 @@ class GeneticAlgorithm {
 
     initialize(track) {
         for (let i = 0; i < this.populationSize; i++) {
-            this.population.push(new Car(400, 200, 0, track));
+            this.population.push(new Car(400, 500, 3.14159, track));
         }
     }
 
@@ -17,9 +17,9 @@ class GeneticAlgorithm {
         let allDead = true;
         for (let car of this.population) {
             if (car.alive) {
+            if (car.alive) {
                 car.update();
                 allDead = false;
-            }
         }
 
         if (allDead) {
@@ -38,7 +38,7 @@ class GeneticAlgorithm {
         for (let i = 0; i < this.populationSize; i++) {
             let newBrain = bestCar.brain.copy();
             newBrain.mutate(this.mutationRate);
-            newPopulation.push(new Car(400, 200, 0, bestCar.track, newBrain));
+            newPopulation.push(new Car(400, 500, 3.14159, bestCar.track, newBrain));
         }
 
         this.population = newPopulation;
@@ -49,7 +49,9 @@ class GeneticAlgorithm {
         let bestCar = this.population.reduce((best, car) => car.fitness > best.fitness ? car : best);
 
         for (let car of this.population) {
-            car.draw(ctx, car === bestCar);
+            if (car.alive) {
+                car.draw(ctx, car === bestCar);
+            }
         }
     }
 }
