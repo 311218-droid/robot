@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Driving Car Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            border: 1px solid #000;
+            background-color: #fff;
+        }
+        #ui {
+            margin: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Self-Driving Car Simulation</h1>
+    <div id="ui">
+        <div>Generation: <span id="generation">1</span></div>
+        <div>Best Fitness: <span id="bestFitness">0</span></div>
+    </div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script src="network.js"></script>
+    <script src="sensor.js"></script>
+    <script src="car.js"></script>
+    <script src="track.js"></script>
+    <script src="genetic.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
